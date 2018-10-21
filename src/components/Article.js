@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import CommentsList from './CommentsList.js'
 //import toggleOpen from '../decorators/toggleOpen.js'
+import {deleteArticle} from '../AC/articles'
 
 
 class Article extends Component {
@@ -24,16 +25,21 @@ class Article extends Component {
     }
 
     render() {
-        const {article, isOpen, toggleOpen, removeArticle} = this.props
+        const {article, isOpen, toggleOpen} = this.props
         return (
                 <div>
-                    <h3> {article.title} <a href='#' onClick={removeArticle}>Delete</a> </h3>
+                    <h3>{article.title} <a href='#' onClick={this.handleDelete}>Delete</a></h3>
                     <button onClick = {toggleOpen}>
                         {isOpen ? 'Close' : 'Open'}
                     </button>
                     {this.getSection()}
                 </div>
         )
+    }
+    handleDelete = (ev) => {
+        ev.preventDefault()
+        deleteArticle(this.props.article.id)
+        //console.log('deleting', this.props.article.id)
     }
 
     getSection() {

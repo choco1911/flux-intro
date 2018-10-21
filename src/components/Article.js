@@ -24,10 +24,10 @@ class Article extends Component {
     }
 
     render() {
-        const {article, isOpen, toggleOpen} = this.props
+        const {article, isOpen, toggleOpen, removeArticle} = this.props
         return (
                 <div>
-                    <h3> {article.title} </h3>
+                    <h3> {article.title} <a href='#' onClick={removeArticle}>Delete</a> </h3>
                     <button onClick = {toggleOpen}>
                         {isOpen ? 'Close' : 'Open'}
                     </button>

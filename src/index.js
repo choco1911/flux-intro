@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import {articles} from './fixtures'
-import App from './components/App'
 import './index.css'
+import Container from './components/Container'
 
-render(<App articles={articles} /> , document.getElementById('cntnr'))
+render(<Container /> , document.getElementById('cntnr'))

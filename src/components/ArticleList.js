@@ -18,6 +18,7 @@ class ArticleList extends Component {
                 article = {article}
                 isOpen = {article.id === openItemId}
                 toggleOpen = {toggleOpenItem(article.id)}
+                removeArticle = {this.handleDelete}
             />
         </li> )
 
@@ -26,6 +27,10 @@ class ArticleList extends Component {
                 {articleElements}
             </ul>
         )
+    }
+    handleDelete = (ev) => {
+        ev.preventDefault()
+        console.log(ev)
     }
 
 }
